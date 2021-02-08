@@ -6,6 +6,9 @@ export const theme: ThemeOptions = {
     primary: {
       main: "#481e90",
     },
+    secondary: {
+      main: "#ffffff",
+    },
     background: {
       paper: "#333333",
     },

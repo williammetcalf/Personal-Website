@@ -1,16 +1,25 @@
 import React, { FC } from "react";
 
-import { AppBar, Box, styled, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Box, styled, Tab, Tabs, Toolbar, Typography } from "@material-ui/core";
 
 interface Props {
+  tab: string;
   style?: React.SVGAttributes<SVGSVGElement>["style"];
 }
 
 const Header: FC<Props> = (props) => {
-  const { style } = props;
+  const { tab, style } = props;
 
   return (
-    <AppBar style={{ backgroundColor: "transparent" }}>
+    <AppBar
+      style={{
+        backgroundColor: "unset",
+        background:
+          "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%)",
+        border: "none",
+        boxShadow: "none",
+      }}
+    >
       <StyledToolbar>
         <svg
           width={42}
@@ -34,12 +43,11 @@ const Header: FC<Props> = (props) => {
           />
         </svg>
         <Box flex={0.5} />
-        <Typography>About</Typography>
-        <Typography>Work</Typography>
-        <Typography>Services</Typography>
-        <Typography>Blog</Typography>
-        <Typography>News</Typography>
-        <Typography>Contact</Typography>
+        <Tabs value={tab} indicatorColor="secondary">
+          <StyledTab label="About" value={"1"} />
+          <StyledTab label="Services" value={"2"} />
+          <StyledTab label="Contact" value={"3"} />
+        </Tabs>
       </StyledToolbar>
     </AppBar>
   );
@@ -47,9 +55,10 @@ const Header: FC<Props> = (props) => {
 
 const StyledToolbar = styled(Toolbar)({
   justifyContent: "center",
-  "&>*": {
-    marginRight: "3em",
-  },
 });
 
+const StyledTab = styled(Tab)({
+  paddingLeft: 10,
+  paddingRight: 10,
+});
 export default Header;
