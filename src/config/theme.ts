@@ -7,7 +7,7 @@ export const theme: ThemeOptions = {
       main: "#481e90",
     },
     background: {
-      paper: "#000000",
+      paper: "#333333",
     },
   },
 };
