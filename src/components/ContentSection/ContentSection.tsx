@@ -1,15 +1,17 @@
-import React, { CSSProperties, FC, useEffect, useLayoutEffect, useRef } from "react";
+import React, { CSSProperties, FC, useLayoutEffect, useRef } from "react";
 
-import { Box, styled } from "@material-ui/core";
+import { Container, styled } from "@material-ui/core";
+
+import { TAB_VALUE } from "../Header/Header";
 
 interface Props {
-  value: string;
+  value: TAB_VALUE;
   style?: CSSProperties;
   onViewEnter?: () => void;
 }
 
 const ContentSection: FC<Props> = (props) => {
-  const { onViewEnter, style } = props;
+  const { onViewEnter, value, style, children } = props;
   const ref = useRef<HTMLDivElement>();
 
   useLayoutEffect(() => {
@@ -25,11 +27,17 @@ const ContentSection: FC<Props> = (props) => {
     return () => obs.disconnect();
   }, []);
 
-  return <StyledBox ref={ref} style={style}></StyledBox>;
+  return (
+    <StyledBox ref={ref} style={style} id={value}>
+      <Container maxWidth="md">{children}</Container>
+    </StyledBox>
+  );
 };
 
 const StyledBox = styled("div")({
   height: "100vh",
+  paddingTop: 80,
+  overflowX: "hidden",
 });
 
 export default ContentSection;

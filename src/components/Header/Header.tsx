@@ -2,13 +2,17 @@ import React, { FC } from "react";
 
 import { AppBar, Box, styled, Tab, Tabs, Toolbar, Typography } from "@material-ui/core";
 
+import Logo from "../Logo/Logo";
+
+export type TAB_VALUE = "t1" | "t2" | "t3";
+
 interface Props {
-  tab: string;
-  style?: React.SVGAttributes<SVGSVGElement>["style"];
+  tab: TAB_VALUE;
+  onTabClick: (value: TAB_VALUE) => void;
 }
 
 const Header: FC<Props> = (props) => {
-  const { tab, style } = props;
+  const { tab, onTabClick } = props;
 
   return (
     <AppBar
@@ -21,32 +25,24 @@ const Header: FC<Props> = (props) => {
       }}
     >
       <StyledToolbar>
-        <svg
-          width={42}
-          height={50}
-          viewBox="0 0 85 100"
-          preserveAspectRatio="none"
-          style={{
-            stroke: "gray",
-            strokeWidth: 3,
-            fill: "transparent",
-            ...style,
-          }}
-        >
-          <path
-            d={`M 10 0 l -10 100 l 20 -50 l 5 50 l 20 -100`}
-            fill="transparent"
-          />
-          <path
-            d={`M 30 100 l 20 -100 l 5 50 l 25 -50 l -20 100`}
-            fill="transparent"
-          />
-        </svg>
+        <Logo />
         <Box flex={0.5} />
         <Tabs value={tab} indicatorColor="secondary">
-          <StyledTab label="About" value={"1"} />
-          <StyledTab label="Services" value={"2"} />
-          <StyledTab label="Contact" value={"3"} />
+          <StyledTab
+            label="About"
+            value={"t1"}
+            onClick={() => onTabClick("t1")}
+          />
+          <StyledTab
+            label="Services"
+            value={"t2"}
+            onClick={() => onTabClick("t2")}
+          />
+          <StyledTab
+            label="Contact"
+            value={"t3"}
+            onClick={() => onTabClick("t3")}
+          />
         </Tabs>
       </StyledToolbar>
     </AppBar>
