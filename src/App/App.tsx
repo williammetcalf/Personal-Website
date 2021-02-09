@@ -1,10 +1,9 @@
-import React, { FC } from "react";
-
 import { Box } from "@material-ui/core";
-
+import React, { FC } from "react";
 import AboutSection from "../components/AboutSection/AboutSection";
 import ContentSection from "../components/ContentSection";
 import Header from "../components/Header/Header";
+import PortfolioSection from "../components/PortfolioSection";
 import useTabState from "./useTabState";
 
 const App: FC = () => {
@@ -25,12 +24,19 @@ const App: FC = () => {
         style={{ backgroundColor: "gray" }}
         onViewEnter={() => setTabVisually("t2")}
       >
-        <AboutSection />
+        <PortfolioSection />
       </ContentSection>
       <ContentSection
         value={"t3"}
         style={{ backgroundColor: "lightgray" }}
         onViewEnter={() => setTabVisually("t3")}
+      >
+        <AboutSection />
+      </ContentSection>
+      <ContentSection
+        value={"t4"}
+        style={{ backgroundColor: "#333333" }}
+        onViewEnter={() => setTabVisually("t4")}
       >
         <AboutSection />
       </ContentSection>

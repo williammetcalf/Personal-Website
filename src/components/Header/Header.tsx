@@ -2,7 +2,7 @@ import { AppBar, Box, styled, Tab, Tabs, Toolbar } from "@material-ui/core";
 import React, { FC } from "react";
 import Logo from "../Logo/Logo";
 
-export type TAB_VALUE = "t1" | "t2" | "t3";
+export type TAB_VALUE = "t1" | "t2" | "t3" | "t4";
 
 interface Props {
   tab: TAB_VALUE;
@@ -32,14 +32,19 @@ const Header: FC<Props> = (props) => {
             onClick={() => onTabClick("t1")}
           />
           <StyledTab
-            label="Services"
+            label="Portfolio"
             value={"t2"}
             onClick={() => onTabClick("t2")}
           />
           <StyledTab
-            label="Contact"
+            label="Services"
             value={"t3"}
             onClick={() => onTabClick("t3")}
+          />
+          <StyledTab
+            label="Contact"
+            value={"t4"}
+            onClick={() => onTabClick("t4")}
           />
         </Tabs>
       </StyledToolbar>
