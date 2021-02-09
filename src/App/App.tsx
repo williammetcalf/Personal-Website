@@ -15,7 +15,7 @@ const App: FC = () => {
       <Header tab={tab} onTabClick={scrollToSection} />
       <ContentSection
         value={"t1"}
-        style={{ backgroundColor: "darkgray" }}
+        style={{ backgroundColor: "#333333" }}
         onViewEnter={() => setTabVisually("t1")}
       >
         <AboutSection />

@@ -9,9 +9,9 @@ export const theme: ThemeOptions = {
     secondary: {
       main: "#ffffff",
     },
-    background: {
-      paper: "#333333",
-    },
+  },
+  typography: {
+    allVariants: { color: "#eee" },
   },
 };
 

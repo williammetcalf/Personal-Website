@@ -1,7 +1,5 @@
+import { AppBar, Box, styled, Tab, Tabs, Toolbar } from "@material-ui/core";
 import React, { FC } from "react";
-
-import { AppBar, Box, styled, Tab, Tabs, Toolbar, Typography } from "@material-ui/core";
-
 import Logo from "../Logo/Logo";
 
 export type TAB_VALUE = "t1" | "t2" | "t3";
@@ -19,7 +17,7 @@ const Header: FC<Props> = (props) => {
       style={{
         backgroundColor: "unset",
         background:
-          "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%)",
+          "linear-gradient(180deg, rgba(9,9,9,0.3) 0%, rgba(255,255,255,0) 100%)",
         border: "none",
         boxShadow: "none",
       }}

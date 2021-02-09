@@ -18,14 +18,14 @@ const ContentSection: FC<Props> = (props) => {
 
   return (
     <StyledBox ref={ref} style={style} id={value}>
-      <Container maxWidth="md">{children}</Container>
+      {children}
     </StyledBox>
   );
 };
 
 const StyledBox = styled("div")({
-  height: "100vh",
-  paddingTop: 80,
+  minHeight: "100vh",
+  paddingTop: 120,
   overflowX: "hidden",
 });
 
