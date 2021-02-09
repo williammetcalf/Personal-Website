@@ -1,51 +1,43 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Container,
-  styled,
-  Typography,
-} from "@material-ui/core";
+import { Box, Card, Container, styled, Typography } from "@material-ui/core";
 import React, { FC } from "react";
 
-interface Props {}
-
-const AboutSection: FC<Props> = (props) => {
-  const {} = props;
-
+const AboutSection: FC = () => {
   return (
     <Container maxWidth="md">
-      <ImageBox>
-        <StyledCard>
-          <StyledCardContent>
+      <Card>
+        <StyledCardHeader>
+          <BlurredBackground>
             <StyledTypography variant="h3">William Metcalf</StyledTypography>
             <StyledTypography variant="h6">
               Full-Stack Developer
             </StyledTypography>
-          </StyledCardContent>
-        </StyledCard>
-      </ImageBox>
+          </BlurredBackground>
+        </StyledCardHeader>
+      </Card>
+      <Typography
+        variant="body1"
+        style={{ color: "#ccc", marginTop: "3em", textAlign: "center" }}
+      >
+        Hello! My name is William (Bill) Metcalf, and I am a profession
+        full-stack web developer!
+      </Typography>
     </Container>
   );
 };
 
-const ImageBox = styled(Box)({
-  borderRadius: 20,
+const StyledCardHeader = styled(Box)({
   background: `url(${require("../../images/meandderby.jpeg")})`,
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
+  minHeight: 300,
+  display: "flex",
+  flexDirection: "column",
 });
 
-const StyledCard = styled(Card)({
+const BlurredBackground = styled(Box)({
+  flex: 1,
   backgroundColor: "rgba(0,0,0,0.4)",
   backdropFilter: "blur(4px)",
-  borderRadius: 20,
-  height: 350,
-  position: "relative",
-});
-
-const StyledCardContent = styled(CardContent)({
-  height: "100%",
   display: "flex",
   alignContent: "center",
   justifyContent: "center",

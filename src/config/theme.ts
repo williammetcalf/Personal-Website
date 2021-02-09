@@ -12,6 +12,9 @@ export const theme: ThemeOptions = {
   },
   typography: {
     allVariants: { color: "#eee" },
+    body1: {
+      fontSize: 20,
+    },
   },
 };
 
